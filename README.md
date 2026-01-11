@@ -1,3 +1,8 @@
-# SnTemplate
+# SnDL
 
-A repo for quick start with Sn* projects by copy pasting the build and config files.
+A Shared library accessing abstraction.
+
+Have 3 functions
+- Open dll
+- Close dll
+- Load symbol from opened dl

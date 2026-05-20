@@ -2,7 +2,7 @@
 
 #if defined(SN_OS_LINUX) || defined(SN_OS_MAC)
 
-#include <dlfcn.h>
+    #include <dlfcn.h>
 
 void *sn_dl_open(const char *path, int32_t flags) {
     int dl_flags = 0;

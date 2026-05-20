@@ -1,6 +1,6 @@
+#include <assert.h>
 #include <sndl/sndl.h>
 #include <stdio.h>
-#include <assert.h>
 
 typedef int (*dl_binop_fn)(int, int);
 
@@ -8,12 +8,10 @@ static void test_basic_load(void) {
     void *handle = sn_dl_open(SN_DL_TEST_LIB, SN_DL_OPEN_FLAG_DEFAULT);
     assert(handle && "sn_dl_open failed");
 
-    dl_binop_fn add =
-        (dl_binop_fn)sn_dl_get_symbol(handle, "dl_test_add");
+    dl_binop_fn add = (dl_binop_fn)sn_dl_get_symbol(handle, "dl_test_add");
     assert(add && "sn_dl_get_symbol(add) failed");
 
-    dl_binop_fn sub =
-        (dl_binop_fn)sn_dl_get_symbol(handle, "dl_test_sub");
+    dl_binop_fn sub = (dl_binop_fn)sn_dl_get_symbol(handle, "dl_test_sub");
     assert(sub && "sn_dl_get_symbol(sub) failed");
 
     assert(add(2, 3) == 5);
@@ -27,8 +25,7 @@ static void test_flags(void) {
 
     assert(handle && "sn_dl_open_ex failed");
 
-    dl_binop_fn add =
-        (dl_binop_fn)sn_dl_get_symbol(handle, "dl_test_add");
+    dl_binop_fn add = (dl_binop_fn)sn_dl_get_symbol(handle, "dl_test_add");
 
     assert(add);
     assert(add(10, 5) == 15);

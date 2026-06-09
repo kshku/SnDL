@@ -3,7 +3,7 @@
 #include "sndl/api.h"
 #include "sndl/defines.h"
 
-typedef enum snDLOpenFlags {
+typedef enum SnDLOpenFlags {
     SN_DL_OPEN_FLAG_NONE = 0,
 
     SN_DL_OPEN_FLAG_LAZY = SN_BIT_FLAG(0), /**< Resolve symbols on first use */
@@ -13,13 +13,13 @@ typedef enum snDLOpenFlags {
     SN_DL_OPEN_FLAG_GLOBAL = SN_BIT_FLAG(3), /**< Symbols visible to other libraries */
 
     SN_DL_OPEN_FLAG_DEFAULT = SN_DL_OPEN_FLAG_NOW | SN_DL_OPEN_FLAG_LOCAL
-} snDLOpenFlags;
+} SnDLOpenFlags;
 
 /**
  * @brief Open a dll.
  *
  * @param path Path to the dll.
- * @param flags The snDLOpenFlags
+ * @param flags The SnDLOpenFlags
  *
  * @note On platforms that doesn't support flags, they are ignored.
  *

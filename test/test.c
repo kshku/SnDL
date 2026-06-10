@@ -6,14 +6,20 @@
 
 typedef int (*dl_binop_fn)(int, int);
 
+static dl_binop_fn dl_fn_cast(void *sym) {
+    union { void *p; dl_binop_fn f; } u;
+    u.p = sym;
+    return u.f;
+}
+
 static void test_basic_load(void) {
     void *handle = sn_dl_open(SN_DL_TEST_LIB, SN_DL_OPEN_FLAG_DEFAULT);
     TEST_ASSERT(handle && "sn_dl_open failed");
 
-    dl_binop_fn add = (dl_binop_fn)sn_dl_get_symbol(handle, "dl_test_add");
+    dl_binop_fn add = dl_fn_cast(sn_dl_get_symbol(handle, "dl_test_add"));
     TEST_ASSERT(add && "sn_dl_get_symbol(add) failed");
 
-    dl_binop_fn sub = (dl_binop_fn)sn_dl_get_symbol(handle, "dl_test_sub");
+    dl_binop_fn sub = dl_fn_cast(sn_dl_get_symbol(handle, "dl_test_sub"));
     TEST_ASSERT(sub && "sn_dl_get_symbol(sub) failed");
 
     TEST_ASSERT(add(2, 3) == 5);
@@ -27,7 +33,7 @@ static void test_flags(void) {
 
     TEST_ASSERT(handle && "sn_dl_open_ex failed");
 
-    dl_binop_fn add = (dl_binop_fn)sn_dl_get_symbol(handle, "dl_test_add");
+    dl_binop_fn add = dl_fn_cast(sn_dl_get_symbol(handle, "dl_test_add"));
 
     TEST_ASSERT(add);
     TEST_ASSERT(add(10, 5) == 15);

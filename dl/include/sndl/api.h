@@ -1,5 +1,3 @@
-#pragma once
-
 #include <sncore/api_common.h>
 
 #if defined(SN_DL_STATIC)

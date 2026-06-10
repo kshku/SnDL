@@ -1,7 +1,8 @@
 #pragma once
 
+#include <sncore/defines.h>
+
 #include "sndl/api.h"
-#include "sndl/defines.h"
 
 typedef enum SnDLOpenFlags {
     SN_DL_OPEN_FLAG_NONE = 0,

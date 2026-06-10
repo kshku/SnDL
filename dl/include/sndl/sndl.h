@@ -1,7 +1,8 @@
 #pragma once
 
+#include <sncore/defines.h>
+
 #include "sndl/api.h"
-#include "sndl/defines.h"
 
 typedef enum SnDLOpenFlags {
     SN_DL_OPEN_FLAG_NONE = 0,
@@ -25,7 +26,7 @@ typedef enum SnDLOpenFlags {
  *
  * @return Returns NULL on failure else handle to the opened dll.
  */
-SN_API void *sn_dl_open(const char *path, int32_t flags);
+SN_DL_API void *sn_dl_open(const char *path, int32_t flags);
 
 /**
  * @brief Get the symbol from the dll.
@@ -35,13 +36,12 @@ SN_API void *sn_dl_open(const char *path, int32_t flags);
  *
  * @return Returns the symbol or NULL on failure.
  */
-SN_API void *sn_dl_get_symbol(void *handle, const char *symbol);
+SN_DL_API void *sn_dl_get_symbol(void *handle, const char *symbol);
 
 /**
  * @brief Close the opened dll.
  *
  * @param handle The handle to the opened dll.
  */
-SN_API bool sn_dl_close(void *handle);
+SN_DL_API bool sn_dl_close(void *handle);
 
-#undef SN_API

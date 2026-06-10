@@ -6,7 +6,7 @@
 
 void *sn_dl_open(const char *path, int32_t flags) {
     SN_UNUSED(flags);
-    return (void *)LoadLibrary(path);
+    return (void *)LoadLibraryA(path);
 }
 
 void *sn_dl_get_symbol(void *handle, const char *symbol) {

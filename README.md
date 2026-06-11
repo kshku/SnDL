@@ -51,7 +51,7 @@ int main(void) {
 include(FetchContent)
 FetchContent_Declare(sndl
     GIT_REPOSITORY https://github.com/kshku/SnDL.git
-    GIT_TAG main
+    GIT_TAG <tag>  # e.g., v0.1.0
 )
 FetchContent_MakeAvailable(sndl)
 

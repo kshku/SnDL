@@ -2,12 +2,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define TEST_ASSERT(x) do { if (!(x)) { fprintf(stderr, "FAIL [%s:%d]: %s\n", __FILE__, __LINE__, #x); abort(); } } while(0)
+#define TEST_ASSERT(x)                                                     \
+    do {                                                                   \
+        if (!(x)) {                                                        \
+            fprintf(stderr, "FAIL [%s:%d]: %s\n", __FILE__, __LINE__, #x); \
+            abort();                                                       \
+        }                                                                  \
+    } while (0)
 
 typedef int (*dl_binop_fn)(int, int);
 
 static dl_binop_fn dl_fn_cast(void *sym) {
-    union { void *p; dl_binop_fn f; } u;
+    union {
+        void *p;
+        dl_binop_fn f;
+    } u;
+
     u.p = sym;
     return u.f;
 }

@@ -1,10 +1,15 @@
 # Changelog
 
-## [0.1.0] — 2026-06-11
+## [0.2.0] - 2026-06-29
+
+### Changed
+- Updated the dependency versions
+
+## [0.1.0] - 2026-06-11
 
 - First release. See [0.0.0] section in CHANGELOG.md for full changelog.
 
-## [0.0.0] — 2026-01-11
+## [0.0.0] - 2026-01-11
 
 ### Added
 - Cross-platform shared library loading (`sn_dl_open`, `sn_dl_close`, `sn_dl_sym`)

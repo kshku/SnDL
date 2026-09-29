@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15...3.31)
 
-project(SnDL VERSION 0.2.0 DESCRIPTION "Dynamic library loading abstractions" LANGUAGES C)
+project(SnDL VERSION 0.2.1 DESCRIPTION "Dynamic library loading abstractions" LANGUAGES C)
 
 set(CMAKE_C_EXTENSIONS OFF)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -9,7 +9,7 @@ set(CMAKE_C_STANDARD 17)
 include(FetchContent)
 FetchContent_Declare(sncore
     GIT_REPOSITORY https://github.com/kshku/SnCore.git
-    GIT_TAG v0.2.0
+    GIT_TAG v0.3.1
 )
 FetchContent_MakeAvailable(sncore)
 

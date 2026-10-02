@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15...3.31)
 
-project(SnDL VERSION 0.2.1 DESCRIPTION "Dynamic library loading abstractions" LANGUAGES C)
+project(SnDL VERSION 0.2.2 DESCRIPTION "Dynamic library loading abstractions" LANGUAGES C)
 
 set(CMAKE_C_EXTENSIONS OFF)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -23,6 +23,7 @@ set(gcc_clang_comp "$<COMPILE_LANG_AND_ID:C,Clang,GNU>")
 set(msvc_comp "$<COMPILE_LANG_AND_ID:C,MSVC>")
 
 target_compile_options(sn_dl_configs INTERFACE "$<${gcc_clang_comp}:-Wall;-Wextra;-Wformat;-Wuninitialized;-Wpedantic>")
+target_compile_options(sn_dl_configs INTERFACE "$<${gcc_clang_comp}:-Wconversion;-Wsign-conversion>")
 
 target_compile_options(sn_dl_configs INTERFACE "$<${gcc_clang_comp}:-fvisibility=hidden>")
 
